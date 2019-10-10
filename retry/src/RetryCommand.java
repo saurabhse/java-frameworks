@@ -27,6 +27,7 @@ public class RetryCommand<T> {
         while (retryCounter < maxRetries) {
             try {
                 function.get();
+                return;
             } catch (Exception ex) {
                 retryCounter++;
                 System.out.println("Execution failed on retry " + retryCounter + " of " + maxRetries + " error: " + ex);
