@@ -32,4 +32,17 @@ public class SchdeulerConfiguration {
         dataSource.setPassword("root");//change pwd
         return dataSource;
     }
+
+
+    /*
+* Script to be executed for db-scheduler
+*
+* CREATE TABLE shedlock(
+                         name STRING(64),
+                         lock_until TIMESTAMP ,
+                         locked_at TIMESTAMP ,
+                         locked_by  STRING(255),
+                         PRIMARY KEY (name)
+) ;
+* */
 }
