@@ -22,7 +22,7 @@ public class SchdeulerConfiguration {
         return new JdbcTemplateLockProvider(dataSource);
     }
 
-    /*@Bean
+    @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         //MySQL database we are using
@@ -31,5 +31,5 @@ public class SchdeulerConfiguration {
         dataSource.setUsername("root");//change userid
         dataSource.setPassword("root");//change pwd
         return dataSource;
-    }*/
+    }
 }
