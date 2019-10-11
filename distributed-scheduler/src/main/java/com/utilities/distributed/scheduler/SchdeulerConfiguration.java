@@ -5,13 +5,16 @@ import net.javacrumbs.shedlock.provider.jdbctemplate.JdbcTemplateLockProvider;
 import net.javacrumbs.shedlock.spring.annotation.EnableSchedulerLock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.sql.DataSource;
 
 @Configuration
-
+@EnableScheduling
+@EnableSchedulerLock(defaultLockAtMostFor = "PT30S")
+@Profile("shedlock")
 public class SchdeulerConfiguration {
 
     @Bean
@@ -19,7 +22,7 @@ public class SchdeulerConfiguration {
         return new JdbcTemplateLockProvider(dataSource);
     }
 
-    @Bean
+    /*@Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         //MySQL database we are using
@@ -28,5 +31,5 @@ public class SchdeulerConfiguration {
         dataSource.setUsername("root");//change userid
         dataSource.setPassword("root");//change pwd
         return dataSource;
-    }
+    }*/
 }
